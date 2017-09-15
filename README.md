@@ -1,5 +1,5 @@
 # Smart-Security-Camera
-IoT Raspberry Pi security camera running open-cv for object detection. The camera will send an email with an image of any objects it detects. It also runs a server provides a live video stream over the internet.
+IoT Raspberry Pi security camera running open-cv for object detection. The camera will send an email with an image of any objects it detects. It also runs a server that provides a live video stream over the internet.
 
 ## Setup
 
@@ -42,7 +42,7 @@ cd Smart-Security-Camera
 and install the dependencies for the project
 
 ```
-pip install -r requirements 
+pip install -r requirements.txt
 ```
 
 ## Customization
@@ -59,7 +59,7 @@ fromEmailPassword = 'password1234'
 # Email you want to send the update to
 toEmail = 'anotheremail@gmail.com'
 ```
-and replace with your own email/credentials. The `mail.py` file logs into a gmail SMTP server and sends an email with the object detected by the security camera. 
+and replace with your own email/credentials. The `mail.py` file logs into a gmail SMTP server and sends an email with an image of the object detected by the security camera. 
 
 Press `esc` then `ZZ` to save and exit.
 
@@ -94,4 +94,4 @@ Visit `<raspberrypi_ip>:5000` in your browser to view the stream.
 
 Note: To view the live stream on a different network than your Raspberry Pi, you can use [ngrok](https://ngrok.com/) to expose a local tunnel. Once downloaded, run ngrok with `./ngrok http 5000` and visit one of the generated links in your browser.
 
-Note: The video stream will not start automatically on startup. To start the video stream automatically, you will need to run the startup command from your `/etc/rc.local` file see this [video](https://youtu.be/51dg2MsYHns?t=7m4s) for more information about how to configure that.
+Note: The video stream will not start automatically on startup. To start the video stream automatically, you will need to run the program  from your `/etc/rc.local` file see this [video](https://youtu.be/51dg2MsYHns?t=7m4s) for more information about how to configure that.
