@@ -54,6 +54,11 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 ```
+*and change your print statements from quotes to parenthesis*
+
+```
+print "" => print()
+```
 
 ## Customization
 
