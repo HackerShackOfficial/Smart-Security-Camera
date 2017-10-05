@@ -1,6 +1,8 @@
 # Smart-Security-Camera
 IoT Raspberry Pi security camera running open-cv for object detection. The camera will send an email with an image of any objects it detects. It also runs a server that provides a live video stream over the internet.
 
+[Watch the original video here](https://youtu.be/Y2QFu-tTvTI)
+
 ## Setup
 
 This project uses a Raspberry Pi Camera to stream video. Before running the code, make sure to configure the raspberry pi camera on your device.
@@ -43,6 +45,14 @@ and install the dependencies for the project
 
 ```
 pip install -r requirements.txt
+```
+
+*Note: If you're running python3, you'll have to change the import statements at the top of the mail.py file*
+
+```
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 ```
 
 ## Customization
