@@ -3,6 +3,7 @@ import sys
 from mail import sendEmail
 from flask import Flask, render_template, Response
 from camera import VideoCamera
+from flask_basicauth import BasicAuth
 import time
 import threading
 
@@ -12,6 +13,11 @@ object_classifier = cv2.CascadeClassifier("models/fullbody_recognition_model.xml
 
 # App Globals (do not edit)
 app = Flask(__name__)
+app.config['BASIC_AUTH_USERNAME'] = 'CHANGE_ME_USERNAME'
+app.config['BASIC_AUTH_PASSWORD'] = 'CHANGE_ME_PLEASE'
+app.config['BASIC_AUTH_FORCE'] = True
+
+basic_auth = BasicAuth(app)
 last_epoch = 0
 
 def check_for_objects():
@@ -28,6 +34,7 @@ def check_for_objects():
 			print "Error sending email: ", sys.exc_info()[0]
 
 @app.route('/')
+@basic_auth.required
 def index():
     return render_template('index.html')
 
